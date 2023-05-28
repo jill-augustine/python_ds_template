@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mypackage"
+version = "0.0.1"
+dependencies = [
+    "requests",
+    'importlib-metadata; python_version<"3.8"',
+]
+
+## THE FOLLOWING IS STILL IN BETA
+[tool.setuptools.packages]
+find = {}  # Scan the project directory with the default parameters
+
+# OR
+[tool.setuptools.packages.find]
+# All the following settings are optional:
+where = ["src"]  # ["."] by default
+include = ["mypackage*"]  # ["*"] by default
+exclude = ["mypackage.tests*"]  # empty by default
+namespaces = false  # true by default
+## END OF BETA
+
